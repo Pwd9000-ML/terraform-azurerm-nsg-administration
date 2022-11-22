@@ -1,6 +1,3 @@
-nsg_resource_group_name = Application-NSGs-RG
-nsg_identifiers         = ["identifier2", "identifier3"] #selectively apply 
-
 nsg_config = {
   #Identify NSG 1
   identifier1 = {

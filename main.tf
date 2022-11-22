@@ -6,5 +6,3 @@ module "nsg_rules_admin" {
   nsg_name                = lookup(var.nsg_config[each.value], "nsgName", null)
   nsg_rules               = lookup(var.nsg_config[each.value], "nsgRules", null)
 }
-
-
