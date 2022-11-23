@@ -1,23 +1,17 @@
-# Terraform Example - Add subnets on existing Azure VNET
+# Terraform Example 2 - Dynamic NSG config and administration
 
 ## Description
 
-The following example files can be used to demo the module called dynamic-subnets.  
-This example can be used to populate an existing VNET with custom subnets based on a provided subnet config file: `subnet_config.auto.tfvars`.  
-The values used from `subnet_config.auto.tfvars` in this example assumes an existing VNET with a network address space of `10.2.0.0/22`.  
-It is also assumed that the existing network in this example has no subnets configured.  
-The existing resource group name in this example is: `Core-Networking-Rg`".  
-The existing vnet name in this example is: `Core-VNET-9000`.  
+The following example files can be used to demo the module called nsg-administration.  
+This example can be used to populate existing NSGs hosted in Azure selectively by using a master config file, `locals.tf`, and identifiers `common.auto.tfvars`.  
+
+The values used from `locals.tf` in this example assumes existing NSGs and acts as a master config file.  
 The example contains:  
 
 - Main terraform file: `main.tf`.
 - Variables file: `variables.tf`.
-- Common variables defining the existing resources: `common.auto.tfvars`.
-- Subnet configuration used for subnets to be added: `subnet_config.auto.tfvars`.
-
-`main.tf` and `.tfvars` files can be amended to specify the existing resource group and VNET as described in the module readme.  
-Amend `common.auto.tfvars` with relevant `SubscriptionID` and resources that will be used with the azurerm provider.  
-Amend `subnet_config.auto.tfvars` to populate the existing VNET with specified subnets.  
+- Common variables defining the existing resources and NSG identifiers: `common.auto.tfvars`.
+- NSG configuration master file used for nsg configs: `locals.tf`.
 
 ## Usage
 
@@ -41,7 +35,39 @@ Amend `subnet_config.auto.tfvars` to populate the existing VNET with specified s
 
 ## Root module Input variables
   
-- `resourcegroupname` - (Required) Specify the resource group name that contains the Azure Vnet.
-- `virtualnetworkname` - (Required) Specify the Vnet name where subnets will be added.
-- `subscriptionid` - (Required) Subscription ID used for azurerm provider.
-- `subnet_config` - (Required) Specify subnet configuration.
+- `nsg_resource_group_name` - (Required) Specifies the Resource Group that contains Network Security Groups(NSGs) to be configured/administered.
+- `nsg_identifiers` - (Required) Specifies NSG identifiers in the nsg (locals.tf) config.
+
+## Locals file schema
+
+```hcl
+locals {
+
+  nsg_config = {
+
+    nsg_ID1 = {
+      nsgName = "Nsg-Name1"
+      nsgRules = [
+        {
+            rule1
+        },
+        {
+            rule2
+        }
+      ]
+    }
+
+    nsg_ID2 = {
+      nsgName = "Nsg-Name2"
+      nsgRules = [
+        {
+            rule1
+        },
+        {
+            rule2
+        }
+      ]
+    }
+
+}
+```
