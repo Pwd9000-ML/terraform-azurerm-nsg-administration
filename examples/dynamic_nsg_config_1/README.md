@@ -71,3 +71,10 @@ locals {
 
 }
 ```
+
+Configure NSGs selectively using variables:
+
+```hcl
+nsg_resource_group_name = "RGName"
+nsg_identifiers         = ["nsg_ID1", "nsg_ID2", "n"] #Selectively apply to only these NSGs in the master config (locals file).
+```
