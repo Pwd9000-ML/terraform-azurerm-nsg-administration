@@ -3,8 +3,8 @@ locals {
 
   nsg_config = {
 
-    #Identify NSG 1 (Rename "my_azure_nsg1". Only used as indetifier)
-    my_azure_nsg1 = {
+    #Identify NSG 1 
+    pwd9000_app_nsg = {
       nsgName = "pwd9000-subnet1-nsg", #Name of NSG to apply rules to
       nsgRules = [
         {
@@ -32,8 +32,8 @@ locals {
       ]
     }
 
-    #Identify NSG 2 (Rename "my_azure_nsg2". Only used as indetifier)
-    my_azure_nsg2 = {
+    #Identify NSG 2 
+    pwd9000_frontend_nsg = {
       nsgName = "pwd9000-subnet2-nsg", #Name of NSG to apply rules to
       nsgRules = [
         {
@@ -61,8 +61,8 @@ locals {
       ]
     }
 
-    #Identify NSG 3 (Rename "my_azure_nsg3". Only used as indetifier)
-    my_azure_nsg3 = {
+    #Identify NSG 3 
+    pwd9000_backend_nsg = {
       nsgName = "pwd9000-subnet3-nsg", #Name of NSG to apply rules to
       nsgRules = [
         {

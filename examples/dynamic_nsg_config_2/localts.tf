@@ -1,3 +1,4 @@
+#Master config file
 locals {
 
   nsg_config = {
