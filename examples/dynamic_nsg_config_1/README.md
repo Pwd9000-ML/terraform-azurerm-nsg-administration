@@ -38,7 +38,7 @@ The example contains:
 - `nsg_resource_group_name` - (Required) Specifies the Resource Group that contains Network Security Groups(NSGs) to be configured/administered.
 - `nsg_identifiers` - (Required) Specifies NSG identifiers in the nsg (locals.tf) config.
 
-## Locals file schema
+## Locals.tf NSG config file schema
 
 ```hcl
 locals {
@@ -49,7 +49,19 @@ locals {
       nsgName = "Nsg-Name1"
       nsgRules = [
         {
-            rule1
+              nsg_rule_name                  = "Rule1" #default
+              priority                       = "101" #default
+              direction                      = "Any" #default
+              access                         = "Allow" #default
+              protocol                       = "*" #default
+              source_port_range              = null #optional
+              source_port_source_port_ranges = null #optional
+              destination_port_range         = null #optional
+              destination_port_ranges        = null #optional
+              source_address_prefix          = null #optional
+              source_address_prefixes        = null #optional
+              destination_address_prefix     = null #optional
+              destination_address_prefixes   = null #optional
         },
         {
             rule2

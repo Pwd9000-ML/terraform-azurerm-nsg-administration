@@ -120,6 +120,54 @@ module "nsg_rules_administration" {
 }
 ```
 
+## Locals.tf NSG config file schema
+
+Useable values and defaults are shown below:
+
+```hcl
+locals {
+
+  nsg_config = {
+
+    nsg_ID1 = {
+      nsgName = "Nsg-Name1"
+      nsgRules = [
+        {
+              nsg_rule_name                  = "Rule1" #default
+              priority                       = "101" #default
+              direction                      = "Any" #default
+              access                         = "Allow" #default
+              protocol                       = "*" #default
+              source_port_range              = null #optional
+              source_port_source_port_ranges = null #optional
+              destination_port_range         = null #optional
+              destination_port_ranges        = null #optional
+              source_address_prefix          = null #optional
+              source_address_prefixes        = null #optional
+              destination_address_prefix     = null #optional
+              destination_address_prefixes   = null #optional
+        },
+        {
+            rule2
+        }
+      ]
+    }
+
+    nsg_ID2 = {
+      nsgName = "Nsg-Name2"
+      nsgRules = [
+        {
+            rule1
+        },
+        {
+            rule2
+        }
+      ]
+    }
+
+}
+```
+
 ## Requirements
 
 | Name | Version |
