@@ -4,6 +4,7 @@
 variable "nsg_resource_group_name" {
   type        = string
   description = "Specifies the Resource Group that contains Network Security Groups(NSGs) to be configured/administered"
+  nullable    = false
 }
 
 
