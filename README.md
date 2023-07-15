@@ -167,3 +167,40 @@ locals {
 
 }
 ```
+
+<!-- BEGIN_TF_DOCS -->
+## Requirements
+
+| Name | Version |
+|------|---------|
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 3.65.0 |
+
+## Providers
+
+| Name | Version |
+|------|---------|
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 3.65.0 |
+
+## Modules
+
+No modules.
+
+## Resources
+
+| Name | Type |
+|------|------|
+| [azurerm_network_security_rule.network_nsg_rules](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/network_security_rule) | resource |
+
+## Inputs
+
+| Name | Description | Type | Default | Required |
+|------|-------------|------|---------|:--------:|
+| <a name="input_nsg_name"></a> [nsg\_name](#input\_nsg\_name) | Specifies the Network Security Group(NSG) name | `string` | n/a | yes |
+| <a name="input_nsg_resource_group_name"></a> [nsg\_resource\_group\_name](#input\_nsg\_resource\_group\_name) | Specifies the Resource Group that contains Network Security Groups(NSGs) to be configured/administered | `string` | n/a | yes |
+| <a name="input_nsg_rules"></a> [nsg\_rules](#input\_nsg\_rules) | Specifies a list of objects to represent Network Security Group(NSG) rules | <pre>list(object({<br>    nsg_rule_name                = optional(string, "default_rule_name")<br>    priority                     = optional(string, "101")<br>    direction                    = optional(string, "Any")<br>    access                       = optional(string, "Allow")<br>    protocol                     = optional(string, "*")<br>    source_port_range            = optional(string, null)<br>    source_port_ranges           = optional(list(string), null)<br>    destination_port_range       = optional(string, null)<br>    destination_port_ranges      = optional(list(string), null)<br>    source_address_prefix        = optional(string, null)<br>    source_address_prefixes      = optional(list(string), null)<br>    destination_address_prefix   = optional(string, null)<br>    destination_address_prefixes = optional(list(string), null)<br>  }))</pre> | `[]` | no |
+
+## Outputs
+
+No outputs.
+<!-- END_TF_DOCS -->
