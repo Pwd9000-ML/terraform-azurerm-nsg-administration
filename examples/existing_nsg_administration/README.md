@@ -95,7 +95,7 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_nsg_rules_administration"></a> [nsg\_rules\_administration](#module\_nsg\_rules\_administration) | Pwd9000-ML/nsg-administration/azurerm | >= 1.1.0 |
+| <a name="module_nsg_rules_administration"></a> [nsg\_rules\_administration](#module\_nsg\_rules\_administration) | Pwd9000-ML/nsg-administration/azurerm | >= 1.1.3 |
 
 ## Resources
 
