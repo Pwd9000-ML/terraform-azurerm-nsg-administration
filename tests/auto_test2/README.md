@@ -1,3 +1,9 @@
+# Automated Test 2
+
+This terraform module test will create a `Resource Group` and `NSGs` based on the `network_security_groups` input variable.  
+Each NSG is then configured with a set of `NSG rules`, using each NSG name as a lookup and applying the NSG rules as layed out in the locals config.  
+This module can be used to create and administer NSGs in a single module.
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 

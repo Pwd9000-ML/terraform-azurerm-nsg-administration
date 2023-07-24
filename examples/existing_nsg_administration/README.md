@@ -1,17 +1,13 @@
-# Terraform Example 2 - Dynamic NSG config and administration
+# Terraform Example 1 - Existing NSG administration
 
 ## Description
 
-The following example files can be used to demo the module called nsg-administration.  
-This example can be used to populate existing NSGs hosted in Azure selectively by using a master config file, `locals.tf`, and identifiers `common.auto.tfvars`.  
+This example can be used to create `NSG rules`, selectively targeting already `existing NSGs` by using identifiers to lookup specific NSGs and applying the NSG rules as layed out in the locals config.  
+
+NSG identifiers are specified in the `nsg_identifiers` input variable and then configured on the `nsg` locals config.  
+Using this method of specifying NSG identifiers allows for the NSG rules to be applied to multiple NSGs at once and gives mor control over which NSGs can be administered through this module and which don't.  
 
 The values used from `locals.tf` in this example assumes existing NSGs and acts as a master config file.  
-The example contains:  
-
-- Main terraform file: `main.tf`.
-- Variables file: `variables.tf`.
-- Common variables defining the existing resources and NSG identifiers: `common.auto.tfvars`.
-- NSG configuration master file used for nsg configs: `locals.tf`.
 
 ## Usage
 
@@ -33,12 +29,7 @@ The example contains:
     terraform apply destroy.tfplan
     ```
 
-## Root module Input variables
-  
-- `nsg_resource_group_name` - (Required) Specifies the Resource Group that contains Network Security Groups(NSGs) to be configured/administered.
-- `nsg_identifiers` - (Required) Specifies NSG identifiers in the nsg (locals.tf) config.
-
-## Locals file schema
+## Locals.tf NSG config file schema
 
 ```hcl
 locals {
