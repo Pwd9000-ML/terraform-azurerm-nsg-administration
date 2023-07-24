@@ -1,11 +1,8 @@
 #Master config file
 locals {
-
   nsg_config = {
-
-    #Identify NSG 1 (Rename "my_azure_nsg1". Only used as identifier)
-    my_azure_nsg1 = {
-      nsgName = "pwd9000-subnet1-nsg", #Name of NSG to apply rules to
+    #Identify NSG 1 
+    pwd9000-app-subnet-nsg = {
       nsgRules = [
         {
           nsg_rule_name              = "DummyRule-Deny-Access-from"
@@ -32,9 +29,8 @@ locals {
       ]
     }
 
-    #Identify NSG 2 (Rename "my_azure_nsg2". Only used as identifier)
-    my_azure_nsg2 = {
-      nsgName = "pwd9000-subnet2-nsg", #Name of NSG to apply rules to
+    #Identify NSG 2 
+    pwd9000-data-subnet-nsg = {
       nsgRules = [
         {
           nsg_rule_name              = "DummyRule-Deny-Access-from"
@@ -61,9 +57,8 @@ locals {
       ]
     }
 
-    #Identify NSG 3 (Rename "my_azure_nsg3". Only used as identifier)
-    my_azure_nsg3 = {
-      nsgName = "pwd9000-subnet3-nsg", #Name of NSG to apply rules to
+    #Identify NSG 3 
+    pwd9000-container-subnet-nsg = {
       nsgRules = [
         {
           nsg_rule_name              = "DummyRule-Deny-Access-from"
@@ -90,5 +85,4 @@ locals {
       ]
     }
   }
-
 }

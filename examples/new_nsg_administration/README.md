@@ -1,17 +1,12 @@
-# Terraform Example 1 - Dynamic NSG config and administration
+# Terraform Example 2 - New NSG administration
 
 ## Description
 
-The following example files can be used to demo the module called nsg-administration.  
-This example can be used to populate existing NSGs hosted in Azure selectively by using a master config file, `locals.tf`, and identifiers `common.auto.tfvars`.  
+This example will create a `Resource Group` and `NSGs` based on the `network_security_groups` input variable.  
+Each NSG is then configured with a set of `NSG rules`, using each NSG name as a lookup and applying the NSG rules as layed out in the locals config.  
+This module can be used to create and administer NSGs in a single module.
 
 The values used from `locals.tf` in this example assumes existing NSGs and acts as a master config file.  
-The example contains:  
-
-- Main terraform file: `main.tf`.
-- Variables file: `variables.tf`.
-- Common variables defining the existing resources and NSG identifiers: `common.auto.tfvars`.
-- NSG configuration master file used for nsg configs: `locals.tf`.
 
 ## Usage
 
@@ -33,11 +28,6 @@ The example contains:
     terraform apply destroy.tfplan
     ```
 
-## Root module Input variables
-  
-- `nsg_resource_group_name` - (Required) Specifies the Resource Group that contains Network Security Groups(NSGs) to be configured/administered.
-- `nsg_identifiers` - (Required) Specifies NSG identifiers in the nsg (locals.tf) config.
-
 ## Locals.tf NSG config file schema
 
 ```hcl
@@ -45,8 +35,7 @@ locals {
 
   nsg_config = {
 
-    nsg_ID1 = {
-      nsgName = "Nsg-Name1"
+    nsgName = {
       nsgRules = [
         {
               nsg_rule_name                  = "Rule1" #default
@@ -69,8 +58,7 @@ locals {
       ]
     }
 
-    nsg_ID2 = {
-      nsgName = "Nsg-Name2"
+    nsgName = {
       nsgRules = [
         {
             rule1
@@ -82,13 +70,6 @@ locals {
     }
 
 }
-```
-
-Configure NSGs selectively using variables:
-
-```hcl
-nsg_resource_group_name = "RGName"
-nsg_identifiers         = ["nsg_ID1", "nsg_ID2", "n"] #Selectively apply to only these NSGs in the master config (locals file).
 ```
 
 <!-- BEGIN_TF_DOCS -->
