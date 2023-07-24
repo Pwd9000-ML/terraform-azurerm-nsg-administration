@@ -3,7 +3,6 @@ locals {
   nsg_config = {
     #Identify NSG 1 
     pwd9000-app-subnet-nsg = {
-      #nsgName = "pwd9000-app-subnet-nsg", #Name of NSG to apply rules to
       nsgRules = [
         {
           nsg_rule_name              = "DummyRule-Deny-Access-from"
@@ -32,7 +31,6 @@ locals {
 
     #Identify NSG 2 
     pwd9000-data-subnet-nsg = {
-      #nsgName =  "pwd9000-data-subnet-nsg", #Name of NSG to apply rules to
       nsgRules = [
         {
           nsg_rule_name              = "DummyRule-Deny-Access-from"
@@ -61,7 +59,6 @@ locals {
 
     #Identify NSG 3 
     pwd9000-container-subnet-nsg = {
-      #nsgName =  "pwd9000-container-subnet-nsg", #Name of NSG to apply rules to
       nsgRules = [
         {
           nsg_rule_name              = "DummyRule-Deny-Access-from"

@@ -1,3 +1,10 @@
+# Automated Test 1
+
+This terraform module test will create `NSG rules`, selectively targeting already existing NSGs by using an identifier to lookup the NSG name to applying the NSG rules as layed out in the locals config.  
+
+NSG identifiers are specified in the `nsg_identifiers` input variable and then configured on the `nsg` locals config.  
+Using this method of specifying NSG identifiers allows for the NSG rules to be applied to multiple NSGs at once and gives mor control over which NSGs can be administered through this module and which don't.  
+
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
 
