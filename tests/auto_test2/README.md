@@ -33,9 +33,9 @@ No requirements.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_location"></a> [location](#input\_location) | Azure region to deploy resources to. | `string` | `"uksouth"` | no |
-| <a name="input_network_security_groups"></a> [network\_security\_groups](#input\_network\_security\_groups) | List of NSGs to create. | `list(string)` | <pre>[<br>  "pwd9000-subnet1-nsg",<br>  "pwd9000-subnet2-nsg",<br>  "pwd9000-subnet3-nsg"<br>]</pre> | no |
+| <a name="input_network_security_groups"></a> [network\_security\_groups](#input\_network\_security\_groups) | List of NSGs to create. | `list(string)` | <pre>[<br/>  "pwd9000-subnet1-nsg",<br/>  "pwd9000-subnet2-nsg",<br/>  "pwd9000-subnet3-nsg"<br/>]</pre> | no |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Name of the resource group where resources will be hosted. | `string` | n/a | yes |
-| <a name="input_tags"></a> [tags](#input\_tags) | A map of key value pairs that is used to tag resources created. | `map(string)` | <pre>{<br>  "Author": "Marcel Lupo",<br>  "Description": "Automated test for NSG administration module.",<br>  "GitHub": "https://registry.terraform.io/modules/Pwd9000-ML/nsg-administration/azurerm/latest",<br>  "Terraform": "True"<br>}</pre> | no |
+| <a name="input_tags"></a> [tags](#input\_tags) | A map of key value pairs that is used to tag resources created. | `map(string)` | <pre>{<br/>  "Author": "Marcel Lupo",<br/>  "Description": "Automated test for NSG administration module.",<br/>  "GitHub": "https://registry.terraform.io/modules/Pwd9000-ML/nsg-administration/azurerm/latest",<br/>  "Terraform": "True"<br/>}</pre> | no |
 
 ## Outputs
 
